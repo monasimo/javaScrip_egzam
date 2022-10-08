@@ -10,4 +10,51 @@ Paspaudus mygtuką "Show users":
 Pastaba: Informacija apie user'į (jo kortelė) bei turi turėti bent minimalų stilių;
 -------------------------------------------------------------------------- */
 
+
+// ********************** UZDUOTYJE PARASYTA IKELTI REIKSMES KORTELEJE, NEZINOJAU AR avatar_url REIKSME TUREJOTE OMENYJE TIESIOG TEKSTA AR NUOTRAUKA TAI IDEJAU IR TEKSTA IR NUOTRAUKA :)
+
 const ENDPOINT = 'https://api.github.com/users';
+
+console.log('start')
+
+document.getElementById('btn').addEventListener('click', showData)
+
+let output = document.getElementById('output')
+
+function showData () {
+
+    fetch(ENDPOINT)
+    .then(x => x.json())
+    .then(data =>{
+        document.getElementById('message').innerText = ''
+
+        for (let i=0; i<data.length; i++) {
+
+            let card = document.createElement('div')
+            card.className = 'card'
+            output.appendChild(card)
+            card.style = 'margin:1%'
+
+            let avatar = document.createElement('img')
+            avatar.className ='card-img-top'
+            avatar.src = data[i].avatar_url
+
+            let avatar_url = document.createElement('div')
+            avatar_url.className = 'card-header'
+            avatar_url.innerText = data[i].avatar_url
+
+            let loginBox = document.createElement('div')
+            loginBox.className = 'card-body'
+
+            let login = document.createElement('h5')
+            login.className = 'card-title'
+            login.innerText = data[i].login
+
+            card.appendChild(avatar)
+            card.appendChild(avatar_url)
+            card.appendChild(loginBox)
+            loginBox.appendChild(login)
+        }
+    })   
+}
+    
