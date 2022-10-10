@@ -10,3 +10,11 @@ const audi = {
   year: 2005,
   color: 'white',
 };
+
+showObjectKeys(audi)
+
+function showObjectKeys (masyvas) {
+
+  let keys = Object.keys(masyvas);
+  console.log(keys)
+}
