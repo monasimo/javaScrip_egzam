@@ -19,3 +19,46 @@ const users = [
   { id: '8', name: 'Simon Peterson', age: 30 },
   { id: '9', name: 'Daniel Cane', age: 51 },
 ];
+
+
+// 1 UZDUOTIS
+
+getUserAverageAge(users)
+
+function getUserAverageAge(masyvas) {
+
+  let ageArray = []
+
+  let sum = 0
+
+  for (let value of Object.values(masyvas)) {
+    let age = value.age
+    ageArray.push(age)
+  }
+
+  for (let age of ageArray) {
+    sum += age
+  }
+
+  average = sum/ageArray.length
+
+  console.log(average)
+ 
+
+}
+
+// 2 UZDUOTIS
+
+getUsersNames(users)
+
+function getUsersNames (masyvas) {
+
+  let namesArray = []
+
+  for (let value of Object.values(masyvas)) {
+    let name = value.name
+    namesArray.push(name)
+  }
+
+  console.log(namesArray)
+}
